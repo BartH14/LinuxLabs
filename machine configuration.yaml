@@ -1,0 +1,13 @@
+- name: Configuring the machine
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Clone the GitHub repository to the local machine.
+      git:
+        repo: 'https://github.com/BartH14/LinuxLabs'
+        dest: /opt/LinuxLabs
+        version: master
+
+    - name: Create tar for easy reset.
+      command: /opt/LinuxLabs/tar_script.sh
