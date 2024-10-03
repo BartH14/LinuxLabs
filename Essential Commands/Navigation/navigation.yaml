@@ -120,7 +120,7 @@
       copy:
         dest: "/home/exercise/exercise1"
         content: |
-            Navigate to the exercises directory and print your current directory.
+            Navigate to the exercise directory and print your current directory.
             Append your current directory to the answer file by using the following format:
             {your command} > /home/answers/exercise1_answer.txt
 
