@@ -142,7 +142,7 @@
 
     - name: Create exercise 4
       copy:
-        dest: ":/home/exercise/exercise4"
+        dest: "/home/exercise/exercise4"
         content: |
           List all the hidden files in the Angron directory.
           Append the results of your command to the answer file by using the following format:
@@ -150,7 +150,7 @@
     
     - name: Create exercise 4
       copy:
-        dest: ":/home/exercise/exercise5"
+        dest: "/home/exercise/exercise5"
         content: |
           Use the long listing format to display the contents of Angron's Wargear directory.
           Append the results of your command to the answer file by using the following format:
@@ -166,7 +166,7 @@
 
     - name: Create exercise 6
       copy:
-        dest: ":/home/exercise/exercise6"
+        dest: "/home/exercise/exercise6"
         content: |
           Use the absolute path to navigate to the Scriptorium under the Lorgar directory.
           Append your command to the answer file by using the following format:
