@@ -122,7 +122,7 @@
         content: |
             Navigate to the exercise directory and print your current directory.
             Append your current directory to the answer file by using the following format:
-            {your command} > /home/answers/exercise1_answer.txt
+            {your command} > /home/answers/exercise1
 
     - name: Create exercise 2
       copy:
@@ -130,7 +130,7 @@
         content: |
           List the contents of the current directory.
           Append the contents of the directory to the answer file by using the following format:
-          {your command} > /home/answers/exercise2_answer.txt
+          {your command} > /home/answers/exercise2
     
     - name: Create exercise 3
       copy:
@@ -138,7 +138,7 @@
         content: |
           Change to the Angron directory using it's absolute path.
           Append the command you entered to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise3_answer.txt
+          echo "{your command}" > /home/answers/exercise3
 
     - name: Create exercise 4
       copy:
@@ -146,7 +146,7 @@
         content: |
           List all the hidden files in the Angron directory.
           Append the results of your command to the answer file by using the following format:
-          {your command} > /home/answers/exercise4_answer.txt
+          {your command} > /home/answers/exercise4
     
     - name: Create exercise 5
       copy:
@@ -154,7 +154,7 @@
         content: |
           Use the long listing format to display the contents of Angron's Wargear directory.
           Append the results of your command to the answer file by using the following format:
-          {your command} > /home/answers/exercise5_answer.txt
+          {your command} > /home/answers/exercise5
 
     - name: Create exercise 6
       copy:
@@ -162,7 +162,7 @@
         content: |
           Use the relative path to navigate to the parent directory of Angron.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise6_answer.txt
+          echo "{your command}" > /home/answers/exercise6
 
     - name: Create exercise 7
       copy:
@@ -170,7 +170,7 @@
         content: |
           Use the absolute path to navigate to the Scriptorium under the Lorgar directory.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise7_answer.txt
+          echo "{your command}" > /home/answers/exercise7
     
     - name: Create exercise 8
       copy:
@@ -178,7 +178,7 @@
         content: |
           From Lorgar's Scriptorium, navigate to Titus's Campaigns using only relative paths.
           Append each command to the answer file by using the following format:
-          echo "{your command}" >> /home/answers/exercise8_answer.txt
+          echo "{your command}" >> /home/answers/exercise8
     
     - name: Create exercise 9
       copy:
@@ -186,7 +186,7 @@
         content: |
           List the contents of Titus' campaigns directory, sorted by modification date.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise9_answer.txt
+          echo "{your command}" > /home/answers/exercise9
     
     - name: Create exercise 10
       copy:
@@ -194,7 +194,7 @@
         content: |
           From Titus' campaigns directory, navigate to your home directory using a single command.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise10_answer.txt
+          echo "{your command}" > /home/answers/exercise10
 
     - name: Create exercise 11
       copy:
@@ -202,7 +202,7 @@
         content: |
           List all the contents of the Dante directory recursively by using a single command.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise11_answer.txt
+          echo "{your command}" > /home/answers/exercise11
 
     - name: Create exercise 12
       copy:
@@ -210,7 +210,7 @@
         content: |
           Navigate to the Lorgar directory, then to Scriptorium. Return to the Lorgar directory by using a single command.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise12_answer.txt
+          echo "{your command}" > /home/answers/exercise12
 
     - name: Create exercsie 13
       copy:
@@ -218,7 +218,7 @@
         content: |
           List all of the contents of Lorgar's Daemonic Gifts directory using human readable file sizes.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise13_answer.txt       
+          echo "{your command}" > /home/answers/exercise13    
 
     - name: Create exercise 14
       copy:
@@ -226,7 +226,7 @@
         content: |
           From the practice directory, change into Angron's Wargear/Weapons directory with a single command using the relative path.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise14_answer.txt 
+          echo "{your command}" > /home/answers/exercise14 
     
     - name: Create exercise 15
       copy:
@@ -234,7 +234,7 @@
         content: |
           List all files in Angron's Wargear directory that have the file extension '.de' (if any).
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise15_answer.txt
+          echo "{your command}" > /home/answers/exercise15
     
     - name: Create exercise 16
       copy:
@@ -242,7 +242,7 @@
         content: |
           From Angron's Weapons directory, list the content of both the current directory and it's parent.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise16_answer.txt 
+          echo "{your command}" > /home/answers/exercise16
     
     - name: Create exercise 17
       copy:
@@ -250,7 +250,7 @@
         content: |
           List only the directories in the practice directory.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise17_answer.txt
+          echo "{your command}" > /home/answers/exercise17
     
     - name: Create exercise 18
       copy:
@@ -261,7 +261,7 @@
           2. Print your current directory.
           3. Move back to your initial directory.
           Append your commands to the answer file by using the following format after each step:
-          echo "{your command}" >> /home/answers/exercise18_answer.txt
+          echo "{your command}" >> /home/answers/exercise18
     
     - name: Create exercise 19
       copy:
@@ -269,7 +269,7 @@
         content: |
           List the content of the practice directory with indicators for filetype.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise19_answer.txt
+          echo "{your command}" > /home/answers/exercise19
     
     - name: Create exercise 20
       copy:
@@ -282,7 +282,7 @@
           4. Move back to Titus's Equipment directory using it's relative path.
           5. Print your current directory.          
           Append your commands to the answer file by using the following format after each step:
-          echo "{your command}" > /home/answers/exercise20_answer.txt 
+          echo "{your command}" > /home/answers/exercise20
 
     - name: Create exercise 21
       copy:
@@ -290,7 +290,7 @@
         content: |
           List all the contents of Lorgar's Sermons directory in reverse alphabetical order.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise21_answer.txt
+          echo "{your command}" > /home/answers/exercise21
 
     - name: Create exercise 22
       copy:
@@ -299,7 +299,7 @@
           From Lorgar's Sermons directory, change your directory to the directory under Angron that starts with a 'W'.
           Use it's absolute path and a wildcard to navigate.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise22_answer.txt 
+          echo "{your command}" > /home/answers/exercise22
 
     - name: Create exercise 23
       copy:
@@ -307,7 +307,7 @@
         content: |
           List the contents of Titus's Campaigns directory, sorted numerically (if there are numbered files).
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise23_answer.txt
+          echo "{your command}" > /home/answers/exercise23
     
     - name: Create exercise 24
       copy:
@@ -315,7 +315,7 @@
         content: |
           From Dante's Artefacts directory, list the files sorted my modification time in reverse order.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise24_answer.txt
+          echo "{your command}" > /home/answers/exercise24
     
     - name: Create exercise 25
       copy:
@@ -323,7 +323,7 @@
         content: |
           Without changing directory, list the contents of Titus's Ultramar directory with entries seperated by commas.
           Append your command to the answer file by using the following format:
-          echo "{your command}" > /home/answers/exercise25_answer.txt
+          echo "{your command}" > /home/answers/exercise25
     
     - name: Create exercsie 26
       copy:
@@ -335,7 +335,7 @@
           3. Dante's Chapter_Command
           4. Titus's Equipment
           Append your directory stack to the answer file by using the following command:
-          dirs > /home/answer/exercise26_answer.txt
+          dirs > /home/answer/exercise26
 
     - name: Create exercise 27
       copy:
@@ -347,4 +347,4 @@
           3. Move to Lorgar's Daemonic Gifts.
           4. Move back to Titus's training.
           Append your directory stack to the answer file by using the following command:
-          dirs > /home/answer/exercise27_answer.txt
+          dirs > /home/answer/exercise27
