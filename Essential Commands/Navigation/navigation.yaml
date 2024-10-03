@@ -118,7 +118,7 @@
 
     - name: Create exercise 1
       copy:
-        dest: "/home/exercises/exercise1"
+        dest: "/home/exercise/exercise1"
         content: |
             Navigate to the exercises directory and print your current directory.
             Append your current directory to the answer file by using the following format:
@@ -126,7 +126,7 @@
 
     - name: Create exercise 2
       copy:
-        dest: "/home/exercises/exercise2"
+        dest: "/home/exercise/exercise2"
         content: |
           List the contents of the current directory.
           Append the contents of the directory to the answer file by using the following format:
