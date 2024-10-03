@@ -1,0 +1,350 @@
+- name: Configuring the machine for navigation exercises
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Create practice directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - /home/answers
+        - /home/exercises
+        - /home/practice
+        - /home/practice/Angron
+        - /home/practice/Angron/Wargear
+        - /home/practice/Angron/Wargear/Armour
+        - /home/practice/Angron/Wargear/Weapons
+        - /home/practice/Angron/Battles
+        - /home/practice/Angron/Legion
+        - /home/practice/Lorgar
+        - /home/practice/Lorgar/Scriptorium
+        - /home/practice/Lorgar/Daemonic_Gifts
+        - /home/practice/Lorgar/Sermons
+        - /home/practice/Lorgar/Disciples
+        - /home/practice/Titus
+        - /home/practice/Titus/Ultramar
+        - /home/practice/Titus/Campaigns
+        - /home/practice/Titus/Training
+        - /home/practice/Titus/Equipment
+        - /home/practice/Dante
+        - /home/practice/Dante/Blood_Angels
+        - /home/practice/Dante/Artefacts
+        - /home/practice/Dante/Missions
+        - /home/practice/Dante/Chapter_Command
+    
+    - name: Create practice files in directories
+      file:
+        path:  "{{ item.path }}"
+        state: touch
+        mode: '0644'
+      loop:
+        # Angron files
+        - { path: '/home/practice/Angron/Wargear/Armour/Armour of Mars' }
+        - { path: '/home/practice/Angron/Wargear/Armour/Butchers_Nails' }
+        - { path: '/home/practice/Angron/Wargear/Weapons/Spinegrinder' }
+        - { path: '/home/practice/Angron/Wargear/Weapons/Samniarus' }
+        - { path: '/home/practice/Angron/Wargear/Weapons/Black blade' }
+        - { path: '/home/practice/Angron/Wargear/Weapons/Widowmaker' }
+        - { path: '/home/practice/Angron/Wargear/Weapons/Gorechild' }
+        - { path: '/home/practice/Angron/Battles/Ghenna_Massacre' }
+        - { path: '/home/practice/Angron/Battles/Nuceria_Uprising' }
+        - { path: '/home/practice/Angron/Battles/Shadow_Crusade' }
+        - { path: '/home/practice/Angron/Legion/World_Eaters_Structure' }
+        - { path: '/home/practice/Angron/Legion/Berserker_Implants' }
+        - { path: '/home/practice/Angron/Legion/Notable_Warriors' }
+        # Lorgar files
+        - { path: '/home/practice/Lorgar/Scriptorium/Book_of_Lorgar' }
+        - { path: '/home/practice/Lorgar/Scriptorium/Lectitio_Divinitatus' }
+        - { path: '/home/practice/Lorgar/Scriptorium/Chaos_Manuscripts' }
+        - { path: '/home/practice/Lorgar/Scriptorium/Prophecies' }
+        - { path: '/home/practice/Lorgar/Daemonic_Gifts/Illuminarum' }
+        - { path: '/home/practice/Lorgar/Daemonic_Gifts/Chaos_Blessings' }
+        - { path: '/home/practice/Lorgar/Sermons/Monarchia_Address' }
+        - { path: '/home/practice/Lorgar/Sermons/Pilgrimage_of_Enlightenment' }
+        - { path: '/home/practice/Lorgar/Disciples/Kor_Phaeron' }
+        - { path: '/home/practice/Lorgar/Disciples/Erebus' }
+        # Titus files
+        - { path: '/home/practice/Titus/Ultramar/Codex_Astartes' }
+        - { path: '/home/practice/Titus/Ultramar/Macragge_Layout' }
+        - { path: '/home/practice/Titus/Ultramar/Defensive_Strategies' }
+        - { path: '/home/practice/Titus/Campaigns/Defense_of_Ultramar' }
+        - { path: '/home/practice/Titus/Campaigns/Plague_Wars' }
+        - { path: '/home/practice/Titus/Campaigns/Tyrannic_War' }
+        - { path: '/home/practice/Titus/Training/Tactical_Doctrines' }
+        - { path: '/home/practice/Titus/Training/Weapons_Proficiency' }
+        - { path: '/home/practice/Titus/Equipment/Mark_X_Armor' }
+        - { path: '/home/practice/Titus/Equipment/Bolt_Rifle_Specs' }
+        # Dante files
+        - { path: '/home/practice/Dante/Blood_Angels/Chapter_Records' }
+        - { path: '/home/practice/Dante/Blood_Angels/Flaw_Research' }
+        - { path: '/home/practice/Dante/Blood_Angels/Successor_Chapters' }
+        - { path: '/home/practice/Dante/Artefacts/Axe_Mortalis' }
+        - { path: '/home/practice/Dante/Artefacts/Death_Mask' }
+        - { path: '/home/practice/Dante/Artefacts/Perdition_Pistol' }
+        - { path: '/home/practice/Dante/Missions/Cryptus_Campaign' }
+        - { path: '/home/practice/Dante/Missions/Baal_Defense' }
+        - { path: '/home/practice/Dante/Missions/Nephilim_Sector_Patrols' }
+        - { path: '/home/practice/Dante/Chapter_Command/Sanguinary_Guard' }
+        - { path: '/home/practice/Dante/Chapter_Command/Death_Company' }
+
+    - name: Create hidden files for characters
+      file:
+        path: "{{ item.path }}"
+        state: touch
+        mode: '0644'
+      loop:
+        - { path: '/home/practice/.secret_inquisition_report' }
+        - { path: '/home/practice/Angron/.hidden_nails' }
+        - { path: '/home/practice/Angron/.rage_supression_techniques' }
+        - { path: '/home/practice/Lorgar/.forbidden_texts' }
+        - { path: '/home/practice/Lorgar/.chaos_communication_codes' }
+        - { path: '/home/practice/Titus/.primaris_upgrade_plans' }
+        - { path: '/home/practice/Titus/.secret_weapon_prototypes' }
+        - { path: '/home/practice/Dante/.blood_chalice' }
+        - { path: '/home/practice/Dante/.sanguinius_visions' }
+
+    - name: Create symbolic links
+      file:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        state: link
+      loop:
+        - { src: '/home/practice/Angron/Wargear/Weapons/Black blade', dest: '/home/practice/Kharn_the_Betrayer' }
+        - { src: '/home/practice/Lorgar/Scriptorium/Book_of_Lorgar', dest: '/home/practice/Word_Bearers_Tome' }
+        - { src: '/home/practice/Titus/Ultramar/Codex_Astartes', dest: '/home/practice/Ultramarines_Bible' }
+        - { src: '/home/practice/Dante/Artefacts/Death_Mask', dest: '/home/practice/Face_of_Sanguinius' }
+
+    - name: Create exercise 1
+      copy:
+        dest: "/home/exercises/exercise1"
+        content: |
+            Navigate to the exercises directory and print your current directory.
+            Append your current directory to the answer file by using the following format:
+            {your command} > /home/answers/exercise1_answer.txt
+
+    - name: Create exercise 2
+      copy:
+        dest: "/home/exercises/exercise2"
+        content: |
+          List the contents of the current directory.
+          Append the contents of the directory to the answer file by using the following format:
+          {your command} > /home/answers/exercise2_answer.txt
+    
+    - name: Create exercise 3
+      copy:
+        dest: "/home/exercise/exercise3"
+        content: |
+          Change to the Angron directory using it's absolute path.
+          Append the command you entered to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise3_answer.txt
+
+    - name: Create exercise 4
+      copy:
+        dest: ":/home/exercise/exercise4"
+        content: |
+          List all the hidden files in the Angron directory.
+          Append the results of your command to the answer file by using the following format:
+          {your command} > /home/answers/exercise4_answer.txt
+    
+    - name: Create exercise 4
+      copy:
+        dest: ":/home/exercise/exercise5"
+        content: |
+          Use the long listing format to display the contents of Angron's Wargear directory.
+          Append the results of your command to the answer file by using the following format:
+          {your command} > /home/answers/exercise5_answer.txt
+
+    - name: Create exercise 5
+      copy:
+        dest: "/home/exercise/exercise5"
+        content: |
+          Use the relative path to navigate to the parent directory of Angron.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise4_answer.txt
+
+    - name: Create exercise 6
+      copy:
+        dest: ":/home/exercise/exercise6"
+        content: |
+          Use the absolute path to navigate to the Scriptorium under the Lorgar directory.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise5_answer.txt
+    
+    - name: Create exercise 7
+      copy:
+        dest: "/home/exercise/exercise7"
+        content: |
+          From Lorgar's Scriptorium, navigate to Titus's Campaigns using only relative paths.
+          Append each command to the answer file by using the following format:
+          echo "{your command}" >> /home/answers/exercise5_answer.txt
+    
+    - name: Create exercise 8
+      copy:
+        dest: "/home/exercise/exercise8"
+        content: |
+          List the contents of Titus' campaigns directory, sorted by modification date.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise8_answer.txt
+    
+    - name: Create exercise 9
+      copy:
+        dest: "/home/exercise/exercise9"
+        content: |
+          From Titus' campaigns directory, navigate to your home directory using a single command.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise9_answer.txt
+
+    - name: Create exercise 10
+      copy:
+        dest: "/home/exercise/exercise10"
+        content: |
+          List all the contents of the Dante directory recursively by using a single command.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise10_answer.txt
+
+    - name: Create exercise 11
+      copy:
+        dest: "/home/exercise/exercise11"
+        content: |
+          Navigate to the Lorgar directory, then to Scriptorium. Return to the Lorgar directory by using a single command.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise11_answer.txt
+
+    - name: Create exercsie 12
+      copy:
+        dest: "/home/exercise/exercise12"
+        content: |
+          List all of the contents of Lorgar's Daemonic Gifts directory using human readable file sizes.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise12_answer.txt       
+
+    - name: Create exercise 13
+      copy:
+        dest: "/home/exercise/exercise13"
+        content: |
+          From the practice directory, change into Angron's Wargear/Weapons directory with a single command using the relative path.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise13_answer.txt 
+    
+    - name: Create exercise 14
+      copy:
+        dest: "/home/exercise/exercise14"
+        content: |
+          List all files in Angron's Wargear directory that have the file extension '.de' (if any).
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise14_answer.txt
+    
+    - name: Create exercise 15
+      copy:
+        dest: "/home/exercise/exercise15"
+        content: |
+          From Angron's Weapons directory, list the content of both the current directory and it's parent.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise15_answer.txt 
+    
+    - name: Create exercise 16
+      copy:
+        dest: "/home/exercise/exercise16"
+        content: |
+          List only the directories in the practice directory.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise16_answer.txt
+    
+    - name: Create exercise 17
+      copy:
+        dest: "/home/exercise/exercise17"
+        content: |
+          From your current directory, complete the following steps using shortcuts:
+          1. Move to the root directory.
+          2. Print your current directory.
+          3. Move back to your initial directory.
+          Append your commands to the answer file by using the following format after each step:
+          echo "{your command}" >> /home/answers/exercise17_answer.txt
+    
+    - name: Create exercise 18
+      copy:
+        dest: "/home/exercise/exercise18"
+        content: |
+          List the content of the practice directory with indicators for filetype.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise18_answer.txt
+    
+    - name: Create exercise 19
+      copy:
+        dest: "/home/exercise/exercise19"
+        content: |
+          From Dante's Artefacts directory, complete the following steps:
+          1. Move to Titus's Equipment directory using it's absolute path.
+          2. Print your current directory.
+          3. Move back to Dante's Artefacts using a shortcut.
+          4. Move back to Titus's Equipment directory using it's relative path.
+          5. Print your current directory.          
+          Append your commands to the answer file by using the following format after each step:
+          echo "{your command}" > /home/answers/exercise13_answer.txt 
+
+    - name: Create exercise 20
+      copy:
+        dest: "/home/exercise/exercise20"
+        content: |
+          List all the contents of Lorgar's Sermons directory in reverse alphabetical order.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise20_answer.txt
+
+    - name: Create exercise 21
+      copy:
+        dest: "/home/exercise/exercise21"
+        content: |
+          From Lorgar's Sermons directory, change your directory to the directory under Angron that starts with a 'W'.
+          Use it's absolute path and a wildcard to navigate.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise21_answer.txt 
+
+    - name: Create exercise 22
+      copy:
+        dest: "/home/exercise/exercise22"
+        content: |
+          List the contents of Titus's Campaigns directory, sorted numerically (if there are numbered files).
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise22_answer.txt
+    
+    - name: Create exercise 23
+      copy:
+        dest: "/home/exercise/exercise23"
+        content: |
+          From Dante's Artefacts directory, list the files sorted my modification time in reverse order.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise23_answer.txt
+    
+    - name: Create exercise 24
+      copy:
+        dest: "/home/exercise/exercise24"
+        content: |
+          Without changing directory, list the contents of Titus's Ultramar directory with entries seperated by commas.
+          Append your command to the answer file by using the following format:
+          echo "{your command}" > /home/answers/exercise24_answer.txt
+    
+    - name: Create exercsie 25
+      copy:
+        dest: "/home/exercise/exercise25"
+        content: |
+          Using the directory stack, navigate to the following directories:
+          1. Dante's Blood_Angels
+          2. Angron's Weapons
+          3. Dante's Chapter_Command
+          4. Titus's Equipment
+          Append your directory stack to the answer file by using the following command:
+          dirs > /home/answer/exercise25_answer.txt
+
+    - name: Create exercise 26
+      copy:
+        dest: "/home/exercise/exercise26"
+        content: |
+          Using the directory stack only, complete the following navigations:
+          1. Move to Angron's Battles
+          2. Move to Titus's Training
+          3. Move to Lorgar's Daemonic Gifts.
+          4. Move back to Titus's training.
+          Append your directory stack to the answer file by using the following command:
+          dirs > /home/answer/exercise26_answer.txt
